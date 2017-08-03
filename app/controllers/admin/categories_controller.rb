@@ -1,7 +1,7 @@
 class Admin::CategoriesController < ApplicationController
 
   def index
-    @category = Category.order(id: :desc).all
+    @categories = Category.order(id: :desc).all
   end
 
   def new
@@ -12,16 +12,16 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to [:admin, :products], notice: 'Category created!'
+      redirect_to [:admin, :categories], notice: 'Category created!'
     else
       render :new
     end
   end
 
   def destroy
-    @product = Product.find params[:id]
-    @product.destroy
-    redirect_to [:admin, :products], notice: 'Product deleted!'
+    @category = Category.find params[:id]
+    @category.destroy
+    redirect_to [:admin, :categories], notice: 'Category deleted!'
   end
 
   private
