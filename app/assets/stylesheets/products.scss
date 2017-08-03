@@ -61,13 +61,16 @@ main section.categories-show {
         border-bottom-right-radius: 20px;
         font-size: 1em;
         color: white;
+        opacity: 0.6;
       }
 
       &:hover {
-
         border-color: #999;
 
         footer {
+          opacity: 1.0;
+        }
+        aside.sold {
           opacity: 1.0;
         }
       }
