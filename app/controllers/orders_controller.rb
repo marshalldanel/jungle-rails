@@ -24,10 +24,6 @@ class OrdersController < ApplicationController
 
   private
 
-  # def send_mail(order)
-  #   UserMailer.order_confirmation(order).deliver_now
-  # end
-
   def empty_cart!
     # empty hash means no products in cart :)
     update_cart({})
@@ -37,7 +33,7 @@ class OrdersController < ApplicationController
     Stripe::Charge.create(
       source:      params[:stripeToken],
       amount:      cart_total, # in cents
-      description: "Khurram Virani's Jungle Order",
+      description: "Marshall's Jungle Order",
       currency:    'cad'
     )
   end
