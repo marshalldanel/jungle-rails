@@ -1,4 +1,4 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::AdminController
 
   before_filter :authorize
   
