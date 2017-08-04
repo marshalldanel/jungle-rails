@@ -4,6 +4,10 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
+  <div class="order-summary jumbotron">
+    <h2>Thank you! Please check <%= @order.email %> for your order details!</h2>
+  </div>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -24,10 +28,6 @@
         </tr>
       </tbody>
     </table>
-  </div>
-
-  <div class="order-summary jumbotron">
-    <h2>Thank you! Please check <%= @order.email %> for your order details!</h2>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
