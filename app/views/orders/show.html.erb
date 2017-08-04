@@ -4,10 +4,34 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render "item" %>
+          <tr><th colspan="2"></th>
+          <th colspan="2"> TOTAL: </th>
+          <th>
+            <%= number_to_currency(@order.total_cents/100) %>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h2>Thank you! Please check <%= @order.email %> for your order details!</h2>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
+
+
