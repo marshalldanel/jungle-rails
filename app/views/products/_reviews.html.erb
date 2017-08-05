@@ -4,5 +4,8 @@
     <div>
       <p><%= review.rating %> stars <small>according to</small> <%= review.user.name %> </p>
       <p><%= review.description %></p>
+      <% if current_user && current_user.id == review.user_id %>
+        <%= link_to 'Delete', [review.product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>
 </div>
