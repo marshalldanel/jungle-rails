@@ -19,7 +19,8 @@
         </tr>
       </thead>
       <tbody>
-        <%= render "item" %>
+        <% @order.line_items.each do |line_item| %>
+          <%= render "item" %>
           <tr><th colspan="2"></th>
           <th colspan="2"> TOTAL: </th>
           <th>
