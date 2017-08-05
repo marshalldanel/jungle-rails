@@ -26,10 +26,33 @@
       </div>
 
       <div>
+        <h3>Reviews</h3>
         <% @product.reviews.each do |review| %>
           <%= render 'reviews', review: review %>
         <% end %>
       </div>
+    </div>
+    <div>
+      <%= form_for [@product, @review] do |f| %>
+        <div class="field">
+          <%= f.label :rating %>
+          <%= f.select :rating, (1..10), id: :product_rating %>
+        </div>
+
+        <div class="field">
+          <%= f.label :description %>
+          <%= f.text_field :description, id: :product_description %>
+        </div>
+
+        <%= f.hidden_field :user_id, :value => @user.id %>
+        <%= f.hidden_field :product_id, :value => @product.id %>
+
+        <div class="actions">
+          <%= f.submit 'Write Review', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+    
     </div>
 
   </article>
