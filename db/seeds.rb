@@ -136,7 +136,7 @@ cat3.products.create!({
 
 user1 = User.create!({
   first_name: "Marshall",
-  last_name: "D"
+  last_name: "D",
   email: "marshalldanel@gmail.com",
   password_digest: "$2a$10$k6eGw5dznxxj8bbmqoemI.SrlWDGmphJEscSc9uiuh5k2xLQGF2ZW"
 })
