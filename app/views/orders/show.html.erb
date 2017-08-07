@@ -20,13 +20,15 @@
       </thead>
       <tbody>
         <% @order.line_items.each do |line_item| %>
-          <%= render "item" %>
-          <tr><th colspan="2"></th>
-          <th colspan="2"> TOTAL: </th>
-          <th>
-            <%= number_to_currency(@order.total_cents/100) %>
-          </th>
-        </tr>
+          <%= render "item", line_item: line_item %>
+          <tr>
+            <th colspan="2"></th>
+            <th colspan="2"> TOTAL: </th>
+            <th>
+              <%= number_to_currency(@order.total_cents/100) %>
+            </th>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
@@ -34,5 +36,3 @@
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
-
-
