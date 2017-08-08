@@ -14,24 +14,16 @@ RSpec.feature "Visitor navigates to product detail page", type: :feature, js: tr
   end
   
   scenario "They see product details by clicking the img/product title" do
-    
     visit root_path
-  
     first('article.product').find('header > a').click
-
     sleep(2)
-
     expect(page).to have_css 'section.products-show'
   end
 
   scenario "They see the product details by clicking the 'Details' button" do
-    
     visit root_path
-  
     first('article.product').find_link('Details').click
-
     sleep(2)
-
     expect(page).to have_css 'section.products-show'
   end
 
