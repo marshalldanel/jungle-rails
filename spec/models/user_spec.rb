@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   
   before :each do
-    @user = User.create ({
+    @user = User.create(
       first_name: 'Bob',
       last_name: 'Bob',
       email: 'bob@bob.com',
       password: '12345678',
       password_confirmation: '12345678'
-    })
+    )
     @baduser = User.create
   end
 
@@ -42,25 +42,25 @@ RSpec.describe User, type: :model do
       end
 
       it 'should have a matching password' do
-        @badpass = User.create ({
+        @diffpass = User.create(
           first_name: 'Bill',
           last_name: 'Bill',
           email: 'bill@bill.com',
           password: '87654321',
           password_confirmation: '987654321'
-        })
-        expect(@badpass).to_not be_valid
+        )
+        expect(@diffpass).to_not be_valid
       end
 
       it 'should have min 8 char password' do
-        @blankpass = User.create ({
+        @shortpass = User.create(
           first_name: 'Joe',
           last_name: 'Joe',
           email: 'joe@joe.com',
           password: '1234',
           password_confirmation: '1234'
-        })
-        expect(@blankpass).to_not be_valid
+        )
+        expect(@shortpass).to_not be_valid
       end
     end
   end
@@ -68,7 +68,7 @@ RSpec.describe User, type: :model do
   describe '.authenticate_with_credentials' do
 
     it 'allows authenticated access' do
-      user = User.authenticate_with_credentials('bob@bob.com', '12345678')
+      user = User.authenticate_with_credentials(@user.email, @user.password)
       expect(user).to eql(@user)
     end
 
