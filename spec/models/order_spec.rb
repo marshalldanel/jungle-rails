@@ -58,6 +58,7 @@ RSpec.describe Order, type: :model do
 
     it 'does not deduct quantity from products that are not in the order' do
       create_new_order
+      @product3.reload
       expect(@product3.quantity).to eq(@starting_quantity)
     end
   end
