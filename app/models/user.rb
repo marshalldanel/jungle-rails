@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
 
   def self.authenticate_with_credentials(email, password)
-    # @user ||= User.find(email, password) if [:email, :password]
-    
     user = User.where(["email = ?", email.strip.downcase]).first
     if user && user.authenticate(password)
       user
