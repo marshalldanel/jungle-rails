@@ -5,7 +5,7 @@ RSpec.describe Product, type: :model do
     @category = Category.create name: 'Stuff'
     @product = Product.create name: 'Thing', price: 100, quantity: 1, category: @category
     @badproduct = Product.create
-end
+  end
 
   describe '#new' do
     it 'should be valid' do
