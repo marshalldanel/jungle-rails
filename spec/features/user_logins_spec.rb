@@ -23,6 +23,6 @@ RSpec.feature "UserLogins", type: :feature, js: true do
       click_button 'Submit'
     end
     
-    expect(page).to have_content @user.first_name && 'Logout'
+    expect(page).to have_content 'Logout'
   end
 end
